@@ -1,89 +1,211 @@
+/* =========================
+   NAVBAR
+========================= */
+
 .navbar {
-    background-color: white;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 18px 0;
-    position: sticky;
+    position: sticky !important;
     top: 0;
-    z-index: 100;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
 }
 
+
+/*
+   The navbar uses the full available screen width.
+
+   We are NOT using max-width here because we want:
+   - SHOP.CO pushed to the left
+   - cart/profile pushed to the right
+*/
 .nav-container {
-    max-width: 1280px;
-    margin: 0 auto;
+    width: 100%;
+    min-height: 80px;
+
     padding: 0 40px;
+
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 40px;
+
+    box-sizing: border-box;
 }
 
+
+/* =========================
+   LOGO
+========================= */
+
 .logo {
+    color: #000000;
+
     font-size: 28px;
     font-weight: 900;
-    color: black;
+
     text-decoration: none;
-    letter-spacing: -1px;
+
+    /*
+       Prevent the logo from shrinking when
+       the available space becomes smaller.
+    */
+    flex-shrink: 0;
 }
+
+
+/* =========================
+   NAVIGATION LINKS
+========================= */
 
 .nav-links {
     display: flex;
-    list-style: none;
-    gap: 32px;
-    margin: 0;
+    align-items: center;
+
+    gap: 28px;
+
+    margin: 0 0 0 45px;
     padding: 0;
+
+    list-style: none;
 }
 
 .nav-links a {
+    color: #000000;
+
+    font-size: 14px;
     text-decoration: none;
-    color: #000;
-    font-size: 16px;
-    font-weight: 500;
+
+    white-space: nowrap;
 }
 
-.nav-links a:hover {
-    color: #666;
-}
+
+/* =========================
+   RIGHT SIDE
+========================= */
 
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 24px;
+
+    /*
+       Pushes the search box + icons
+       toward the right side.
+    */
+    margin-left: auto;
+
+    gap: 25px;
 }
+
+
+/* =========================
+   SEARCH
+========================= */
 
 .search-box {
-    position: relative;
+    width: 300px;
+
     display: flex;
     align-items: center;
-}
 
-.search-box input {
-    padding: 12px 20px 12px 44px;
-    border-radius: 50px;
-    border: none;
+    gap: 10px;
+
+    padding: 11px 16px;
+
     background-color: #f0f0f0;
-    width: 280px;
-    font-size: 14px;
-    outline: none;
+    border-radius: 30px;
+
+    box-sizing: border-box;
 }
 
 .search-icon {
-    position: absolute;
-    left: 16px;
     color: #666;
-    font-size: 18px;
+    flex-shrink: 0;
 }
+
+.search-box input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   CART + PROFILE
+========================= */
 
 .icons {
     display: flex;
-    gap: 20px;
     align-items: center;
+
+    gap: 18px;
 }
 
 .icon {
+    color: #000;
+
     cursor: pointer;
-    transition: color 0.2s;
+
+    flex-shrink: 0;
 }
 
-.icon:hover {
-    color: #666;
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+    .nav-container {
+        padding: 0 24px;
+    }
+
+    .nav-links {
+        gap: 18px;
+        margin-left: 25px;
+    }
+
+    .search-box {
+        width: 230px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .nav-container {
+        min-height: 70px;
+        padding: 0 16px;
+    }
+
+    /*
+       On mobile the desktop navigation links
+       disappear. We'll eventually replace this
+       with the hamburger menu from the Figma.
+    */
+    .nav-links {
+        display: none;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .icons {
+        gap: 14px;
+    }
 }
