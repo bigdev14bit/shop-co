@@ -1,0 +1,116 @@
+.hero {
+    background-color: #f2f0f1;
+    padding: 60px 0 0;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Keeps models anchored to the bottom */
+    position: relative;
+    height: 100%;
+    min-height: 520px;
+}
+
+.decorative-star {
+    position: absolute;
+    z-index: 10;
+}
+
+/* Position and size for the small star near the left-middle side */
+.star-small {
+    width: 44px;
+    height: 44px;
+    left: 0;
+    top: 55%;
+}
+
+/* Position and size for the large star at the top-right corner */
+.star-large {
+    width: 76px;
+    height: 76px;
+    right: 20px;
+    top: 10%;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 580px;
+}
+
+.hero-content h1 {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+}
+
+.hero-text {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    max-width: 480px;
+}
+
+.shop-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 16px 54px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 48px;
+    transition: all 0.3s ease;
+}
+
+.shop-btn:hover {
+    background-color: #333;
+    transform: scale(1.03);
+}
+
+.stats {
+    display: flex;
+    gap: 36px;
+}
+
+.stat h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.stat p {
+    font-size: 14px;
+    color: #666;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    object-fit: contain; /* Prevents cropping of the figures */
+    display: block;
+}
