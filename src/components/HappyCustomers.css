@@ -1,0 +1,130 @@
+.happy-customers {
+    padding: 60px 0;
+}
+
+/* Section heading */
+.happy-customers .section-title {
+    margin-bottom: 40px;
+}
+
+/*
+   Review cards are displayed in a horizontal grid
+   on larger screens.
+*/
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Individual review card */
+.review-card {
+    border: 1px solid #e6e6e6;
+    border-radius: 20px;
+    padding: 28px;
+    background-color: #ffffff;
+}
+
+/* Stars */
+.review-rating {
+    color: #ffc107;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+/* Customer name */
+.customer-name {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/*
+   Small check beside the customer's name.
+   It represents a verified customer.
+*/
+.verified {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background-color: #00a63c;
+    color: #ffffff;
+
+    font-size: 11px;
+}
+
+/* Review text */
+.customer-review {
+    margin: 0;
+
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 900px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+    .happy-customers {
+        padding: 40px 16px;
+    }
+
+    .happy-customers .section-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .reviews-grid {
+        /*
+           The Figma mobile design shows the reviews
+           as a horizontally scrollable row.
+        */
+        display: flex;
+        overflow-x: auto;
+        gap: 12px;
+
+        /*
+           Prevent the scrollbar from creating an ugly
+           visual interruption.
+        */
+        scrollbar-width: none;
+    }
+
+    .reviews-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .review-card {
+        /*
+           Cards keep their width instead of shrinking
+           so the user can swipe between reviews.
+        */
+        min-width: 280px;
+        padding: 22px;
+    }
+}

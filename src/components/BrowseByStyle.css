@@ -1,0 +1,107 @@
+.browse-by-style {
+    padding: 70px 0;
+}
+
+/*
+   The section itself has a light-gray background,
+   similar to the Figma design.
+*/
+.browse-by-style .container {
+    background-color: #f0f0f0;
+    border-radius: 40px;
+    padding: 50px 60px;
+}
+
+/* Section heading */
+.browse-by-style .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+    font-weight: 900;
+}
+
+/*
+   Two cards per row on desktop.
+*/
+.dress-style-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/*
+   Individual style card.
+   The image fills the right side while the style name
+   sits on the left, matching the general Figma layout.
+*/
+.dress-style-card {
+    position: relative;
+    height: 220px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Style name */
+.dress-style-card h3 {
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    z-index: 2;
+
+    margin: 0;
+
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Style image */
+.dress-style-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .browse-by-style {
+        padding: 40px 16px;
+    }
+
+    .browse-by-style .container {
+        padding: 30px 20px;
+        border-radius: 25px;
+    }
+
+    .browse-by-style .section-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    /*
+       Keep two cards per row on mobile,
+       just like the mobile design in your Figma.
+    */
+    .dress-style-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .dress-style-card {
+        height: 140px;
+        border-radius: 12px;
+    }
+
+    .dress-style-card h3 {
+        top: 15px;
+        left: 15px;
+        font-size: 16px;
+    }
+}
