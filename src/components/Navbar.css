@@ -6,10 +6,15 @@
     position: sticky !important;
     top: 0;
     width: 100%;
-    background-color: #ffffff;
     z-index: 1000;
-}
 
+    /* Glass effect */
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
 
 /*
    The navbar uses the full available screen width.
@@ -151,6 +156,44 @@
     flex-shrink: 0;
 }
 
+.icon-link {
+    position: relative;   /* ← add this */
+    color: #000;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+
+    border-radius: 50px;
+    background-color: #e53935;   /* ← red instead of black */
+    color: #fff;
+
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: badgePop 0.3s ease;
+}
+
+@keyframes badgePop {
+    0%   { transform: scale(0.6); }
+    60%  { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
 /* =========================
    TABLET
 ========================= */
@@ -176,6 +219,12 @@
    MOBILE
 ========================= */
 
+.mobile-menu-btn,
+.mobile-search-btn {
+    display: none;
+}
+
+
 @media (max-width: 768px) {
 
     .nav-container {
@@ -183,27 +232,112 @@
         padding: 0 16px;
     }
 
-    /*
-       On mobile the desktop navigation links
-       disappear. We'll eventually replace this
-       with the hamburger menu from the Figma.
-    */
+
+    /* =========================
+       HAMBURGER
+    ========================= */
+
+    .mobile-menu-btn {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        border: none;
+        background: transparent;
+
+        padding: 0;
+        margin-right: 14px;
+
+        cursor: pointer;
+    }
+
+    .mobile-menu-btn svg {
+        width: 22px;
+        height: 22px;
+    }
+
+
+    /* =========================
+       DESKTOP NAVIGATION
+    ========================= */
+
     .nav-links {
         display: none;
     }
+
+
+    /* =========================
+       MOBILE ACTIONS
+    ========================= */
+
+    .nav-actions {
+        margin-left: auto;
+
+        gap: 14px;
+
+        position: relative;
+    }
+
+
+    /* =========================
+       MOBILE SEARCH BUTTON
+    ========================= */
+
+    .mobile-search-btn {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        border: none;
+        background: transparent;
+
+        padding: 0;
+
+        cursor: pointer;
+    }
+
+    .mobile-search-btn svg {
+        width: 21px;
+        height: 21px;
+    }
+
+
+    /* =========================
+       SEARCH BOX
+    ========================= */
 
     .search-box {
         display: none;
     }
 
-    .nav-actions {
-        margin-left: auto;
-        gap: 15px;
+    .search-box.mobile-search-open {
+        display: flex;
+
+        position: absolute;
+
+        top: 48px;
+        right: 0;
+
+        width: 260px;
+
+        z-index: 1001;
     }
+
+
+    /* =========================
+       LOGO
+    ========================= */
 
     .logo {
         font-size: 22px;
     }
+
+
+    /* =========================
+       CART + PROFILE
+    ========================= */
 
     .icons {
         gap: 14px;

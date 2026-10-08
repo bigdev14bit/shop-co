@@ -1,3 +1,4 @@
+/* src/components/TopSelling.css */
 .top-selling {
     padding: 80px 0 100px;
     background-color: #ffffff;
@@ -6,7 +7,13 @@
 .container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 40px;
+    }
 }
 
 .section-title {
@@ -20,8 +27,30 @@
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
+    align-items: start;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 520px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (min-width: 820px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+    }
 }
 
 .loading,
@@ -51,4 +80,25 @@
 .view-all-btn:hover {
     background: #000;
     color: white;
+}
+
+@media (max-width: 600px) {
+    .top-selling {
+        padding: 50px 0 60px;
+    }
+
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+        letter-spacing: -0.5px;
+    }
+
+    .view-all {
+        margin-top: 40px;
+    }
+
+    .view-all-btn {
+        padding: 13px 40px;
+        font-size: 14px;
+    }
 }

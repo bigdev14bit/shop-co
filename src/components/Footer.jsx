@@ -62,7 +62,7 @@ function Footer() {
                     {/* Brand information */}
                     <div className="footer-brand">
 
-                        <h2>SHOP.CO</h2>
+                        <h2>MORDYLILITH STORE</h2>
 
                         <p>
                             We have clothes that suits your style and
@@ -122,7 +122,7 @@ function Footer() {
 
                     {/* Copyright */}
                     <p>
-                        Shop.co © 2000-2026, All Rights Reserved
+                        Mordylilith Store © 2000-2026, All Rights Reserved
                     </p>
 
 

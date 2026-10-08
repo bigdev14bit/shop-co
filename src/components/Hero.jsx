@@ -1,3 +1,4 @@
+// src/components/Hero.jsx
 import './Hero.css';
 import starIcon from '../assets/star.svg';
 
@@ -5,7 +6,8 @@ function Hero() {
     return (
         <section className="hero">
             <div className="hero-container">
-                {/* Left Content */}
+
+                {/* LEFT: text, CTA, stats */}
                 <div className="hero-content">
                     <h1>
                         FIND CLOTHES <br />
@@ -20,7 +22,6 @@ function Hero() {
 
                     <button className="shop-btn">Shop Now</button>
 
-                    {/* Stats */}
                     <div className="stats">
                         <div className="stat">
                             <h3>200+</h3>
@@ -37,21 +38,25 @@ function Hero() {
                     </div>
                 </div>
 
-                {/* Right Image Side */}
+                {/* RIGHT: image + stars */}
                 <div className="hero-image-wrapper">
-                    {/* Small Star on the Left */}
-                    <img src={starIcon} alt="" className="decorative-star star-small"/>
-
-                    {/* Main Cutout Models */}
+                    <img
+                        src={starIcon}
+                        alt=""
+                        className="decorative-star star-small"
+                    />
                     <img
                         src="/src/assets/trendy-fashionable-couple-posing.jpg"
                         alt="Fashionable couple posing"
                         className="hero-img"
                     />
-
-                    {/* Large Star on the top right */}
-                    <img src={starIcon} alt="" className="decorative-star star-large" />
+                    <img
+                        src={starIcon}
+                        alt=""
+                        className="decorative-star star-large"
+                    />
                 </div>
+
             </div>
         </section>
     );

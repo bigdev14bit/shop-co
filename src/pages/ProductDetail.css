@@ -1,0 +1,395 @@
+/* src/pages/ProductDetail.css */
+
+.pd-page {
+    padding: 40px 0 80px;
+    background-color: #ffffff;
+}
+
+.pd-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+    .pd-container {
+        padding: 0 40px;
+    }
+}
+
+/* Back link */
+.pd-back-link {
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.pd-back-link:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* Not found */
+.pd-not-found {
+    padding: 80px 40px;
+    text-align: center;
+}
+
+/* Layout */
+.pd-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+@media (min-width: 900px) {
+    .pd-layout {
+        flex-direction: row;
+        gap: 60px;
+        align-items: flex-start;
+    }
+}
+
+/* =========================
+   LEFT — IMAGES
+========================= */
+.pd-images {
+    width: 100%;
+}
+
+@media (min-width: 900px) {
+    .pd-images {
+        flex: 1;
+        max-width: 560px;
+    }
+}
+
+.pd-main-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #f5f5f5;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    overflow: hidden;
+    cursor: zoom-in;
+    transition: background-color 0.2s ease;
+}
+
+.pd-main-image:hover {
+    background-color: #ececec;
+}
+
+.pd-main-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Thumbnails */
+.pd-thumbs {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.pd-thumb {
+    width: 80px;
+    height: 80px;
+    padding: 8px;
+    border-radius: 12px;
+    border: 2px solid #e5e5e5;
+    background: #f5f5f5;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;   /* ← add this */
+    transition: border-color 0.2s ease;
+}
+
+.pd-thumb.active {
+    border-color: #000;
+}
+
+.pd-thumb:hover {
+    border-color: #999;
+}
+
+.pd-thumb img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* =========================
+   RIGHT — INFO
+========================= */
+.pd-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+@media (min-width: 900px) {
+    .pd-info {
+        flex: 1;
+        padding-top: 8px;
+    }
+}
+
+.pd-title {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+@media (min-width: 768px) {
+    .pd-title {
+        font-size: 32px;
+    }
+}
+
+.pd-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.pd-rating-number {
+    margin-left: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+.pd-price {
+    font-size: 26px;
+    font-weight: 800;
+    color: #000;
+    margin: 4px 0;
+}
+
+@media (min-width: 768px) {
+    .pd-price {
+        font-size: 30px;
+    }
+}
+
+.pd-description {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+}
+
+/* Size section */
+.pd-size-section {
+    margin-top: 8px;
+}
+
+.pd-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pd-size-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pd-size-chip {
+    min-width: 46px;
+    padding: 10px 14px;
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.pd-size-chip:hover {
+    border-color: #000;
+}
+
+.pd-size-chip.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.pd-error {
+    margin: 10px 0 0;
+    color: #d33;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Actions */
+.pd-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+@media (min-width: 500px) {
+    .pd-actions {
+        flex-direction: row;
+    }
+}
+
+.pd-btn-primary,
+.pd-btn-secondary {
+    flex: 1;
+    padding: 14px 20px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.pd-btn-primary {
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
+}
+
+.pd-btn-primary:hover {
+    background: #333;
+    border-color: #333;
+}
+
+.pd-btn-secondary {
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.pd-btn-secondary:hover {
+    background: #f2f2f2;
+}
+
+.pd-cart-hint a {
+    color: #000;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+.pd-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    cursor: zoom-out;
+}
+
+.pd-lightbox-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    cursor: default;
+    border-radius: 8px;
+}
+
+.pd-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.pd-lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.pd-lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.pd-lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.pd-lightbox-prev {
+    left: 24px;
+}
+
+.pd-lightbox-next {
+    right: 24px;
+}
+
+@media (max-width: 600px) {
+    .pd-lightbox {
+        padding: 16px;
+    }
+
+    .pd-lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .pd-lightbox-prev { left: 8px; }
+    .pd-lightbox-next { right: 8px; }
+
+    .pd-lightbox-close {
+        width: 38px;
+        height: 38px;
+        top: 12px;
+        right: 12px;
+    }
+}

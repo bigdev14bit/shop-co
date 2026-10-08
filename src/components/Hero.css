@@ -1,82 +1,104 @@
+/* src/components/Hero.css */
 .hero {
     background-color: #f2f0f1;
-    padding: 60px 0 0;
-    overflow: hidden;
+    padding: 40px 0 0;
+    overflow-x: hidden;       /* ← stops horizontal scroll */
 }
 
 .hero-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 40px;
+    width: 100%;
+    max-width: 100%;          /* ← was 1400px */
+    margin: 0;
+    padding: 0;               /* ← was 0 16px / 0 24px */
+
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
+    flex-direction: column;
+    gap: 32px;
 }
 
-.hero-image-wrapper {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; /* Keeps models anchored to the bottom */
-    position: relative;
-    height: 100%;
-    min-height: 520px;
+/* Desktop: text left, image right */
+@media (min-width: 900px) {
+    .hero-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+        padding: 0;
+    }
 }
 
-.decorative-star {
-    position: absolute;
-    z-index: 10;
-}
-
-/* Position and size for the small star near the left-middle side */
-.star-small {
-    width: 44px;
-    height: 44px;
-    left: 0;
-    top: 55%;
-}
-
-/* Position and size for the large star at the top-right corner */
-.star-large {
-    width: 76px;
-    height: 76px;
-    right: 20px;
-    top: 10%;
-}
+/* =========================
+   LEFT — TEXT
+========================= */
 
 .hero-content {
-    flex: 1;
-    max-width: 580px;
+    width: 100%;
+    padding: 0 16px;          /* small gutter on mobile */
+}
+
+@media (min-width: 900px) {
+    .hero-content {
+        flex: 1;
+        padding: 0 0 0 40px;   /* left gutter only */
+        max-width: 720px;
+    }
 }
 
 .hero-content h1 {
-    font-size: 64px;
+    font-size: 40px;
     font-weight: 900;
     line-height: 1.05;
-    margin-bottom: 24px;
-    letter-spacing: -2px;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 700px) {
+    .hero-content h1 {
+        font-size: 56px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .hero-content h1 {
+        font-size: 64px;
+        letter-spacing: -2px;
+    }
 }
 
 .hero-text {
-    font-size: 16px;
+    font-size: 15px;
     color: #666;
     line-height: 1.6;
-    margin-bottom: 32px;
-    max-width: 480px;
+    margin-bottom: 26px;
+    max-width: 520px;
+}
+
+@media (min-width: 700px) {
+    .hero-text {
+        font-size: 16px;
+        margin-bottom: 32px;
+    }
 }
 
 .shop-btn {
-    background-color: black;
-    color: white;
+    background-color: #000;
+    color: #fff;
     border: none;
-    padding: 16px 54px;
+    padding: 14px 44px;
     border-radius: 50px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    margin-bottom: 48px;
-    transition: all 0.3s ease;
+    margin-bottom: 32px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+@media (min-width: 700px) {
+    .shop-btn {
+        padding: 16px 54px;
+        font-size: 16px;
+        margin-bottom: 48px;
+    }
 }
 
 .shop-btn:hover {
@@ -84,33 +106,123 @@
     transform: scale(1.03);
 }
 
+/* Stats row */
 .stats {
     display: flex;
-    gap: 36px;
+    flex-wrap: wrap;
+    gap: 20px 28px;
+}
+
+@media (min-width: 700px) {
+    .stats {
+        gap: 36px;
+    }
 }
 
 .stat h3 {
-    font-size: 32px;
+    font-size: 22px;
     font-weight: 700;
-    margin-bottom: 4px;
+    margin: 0 0 4px;
+}
+
+@media (min-width: 700px) {
+    .stat h3 {
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .stat h3 {
+        font-size: 32px;
+    }
 }
 
 .stat p {
-    font-size: 14px;
+    font-size: 12px;
     color: #666;
+    margin: 0;
 }
 
-.hero-image {
-    flex: 1;
+@media (min-width: 700px) {
+    .stat p {
+        font-size: 14px;
+    }
+}
+
+/* =========================
+   RIGHT — IMAGE + STARS
+========================= */
+
+.hero-image-wrapper {
+    width: 100%;
+    padding: 0, 16px;
+    max-width: 520px;
+    margin: 0 auto;
+
+    position: relative;
+
     display: flex;
+    align-items: flex-end;
     justify-content: center;
-    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .hero-image-wrapper {
+        flex: 1;
+        padding: 0 40px 0 0;   /* right gutter only */
+        margin: 0;
+        align-self: stretch;
+    }
 }
 
 .hero-img {
     width: 100%;
-    max-width: 520px;
+    max-width: 100%;
     height: auto;
-    object-fit: contain; /* Prevents cropping of the figures */
     display: block;
+    object-fit: contain;
+}
+
+@media (min-width: 900px) {
+    .hero-img {
+        max-width: 520px;
+        margin-left: auto;     /* push image to the right edge */
+    }
+}
+
+/* Decorative stars */
+.decorative-star {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.star-small {
+    width: 30px;
+    height: 30px;
+    left: -8px;
+    top: 50%;
+}
+
+.star-large {
+    width: 50px;
+    height: 50px;
+    right: 0;
+    top: 6%;
+}
+
+@media (min-width: 700px) {
+    .star-small {
+        width: 44px;
+        height: 44px;
+        left: 0;
+        top: 55%;
+    }
+
+    .star-large {
+        width: 76px;
+        height: 76px;
+        right: 12px;
+        top: 10%;
+    }
 }
