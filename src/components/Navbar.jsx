@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {
     FiSearch,
@@ -13,16 +13,40 @@ import './Navbar.css';
 
 function Navbar() {
     const [searchOpen, setSearchOpen] = useState(false);
+    const [query, setQuery] = useState('');
     const cartCount = useSelector(selectCartCount);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const goToSection = (id) => {
+        if (location.pathname !== '/') {
+            navigate(`/#${id}`);
+        } else {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const handleSearchChange = (e) => {
+        const value = e.target.value;
+        setQuery(value);
+
+        // Auto-navigate to /shop on first keystroke + live filter via URL
+        const params = new URLSearchParams(location.search);
+        if (value.trim()) {
+            params.set('q', value);
+        } else {
+            params.delete('q');
+        }
+
+        navigate(`/shop?${params.toString()}`, { replace: true });
+    };
 
     return (
         <nav className="navbar">
             <div className="nav-container">
 
-                <button
-                    className="mobile-menu-btn"
-                    aria-label="Open menu"
-                >
+                <button className="mobile-menu-btn" aria-label="Open menu">
                     <FiMenu />
                 </button>
 
@@ -32,20 +56,33 @@ function Navbar() {
 
                 <ul className="nav-links">
                     <li><Link to="/shop">Shop</Link></li>
+                    <li>
+                        <button
+                            className="nav-link-btn"
+                            onClick={() => goToSection('about')}
+                        >
+                            About
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            className="nav-link-btn"
+                            onClick={() => goToSection('contact')}
+                        >
+                            Contact
+                        </button>
+                    </li>
                 </ul>
 
                 <div className="nav-actions">
 
-                    <div
-                        className={`search-box ${
-                            searchOpen ? 'mobile-search-open' : ''
-                        }`}
-                    >
+                    <div className={`search-box ${searchOpen ? 'mobile-search-open' : ''}`}>
                         <FiSearch className="search-icon" />
-
                         <input
                             type="text"
                             placeholder="Search for products..."
+                            value={query}
+                            onChange={handleSearchChange}
                         />
                     </div>
 
@@ -59,7 +96,7 @@ function Navbar() {
 
                     <div className="icons">
                         <Link to="/cart" className="icon-link" aria-label="Cart">
-                            <FiShoppingCart size={24} className="icon" />
+                            <FiShoppingCart size={22} className="icon" />
                             {cartCount > 0 && (
                                 <span className="cart-badge" key={cartCount}>
                                     {cartCount}

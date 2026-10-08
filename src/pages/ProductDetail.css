@@ -116,6 +116,21 @@
     justify-content: center;
     flex-shrink: 0;   /* ← add this */
     transition: border-color 0.2s ease;
+    position: relative;
+}
+
+.pd-thumb-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    pointer-events: none;
 }
 
 .pd-thumb.active {

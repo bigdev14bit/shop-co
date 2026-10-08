@@ -1,13 +1,16 @@
 // src/components/Hero.jsx
+import { useNavigate } from 'react-router-dom';
 import './Hero.css';
 import starIcon from '../assets/star.svg';
 
 function Hero() {
+    const navigate = useNavigate();
+
     return (
         <section className="hero">
             <div className="hero-container">
 
-                {/* LEFT: text, CTA, stats */}
+                {/* LEFT: text, CTA, trust taglines */}
                 <div className="hero-content">
                     <h1>
                         FIND CLOTHES <br />
@@ -20,20 +23,25 @@ function Hero() {
                         designed to bring out your individuality and cater to your sense of style.
                     </p>
 
-                    <button className="shop-btn">Shop Now</button>
+                    <button
+                        className="shop-btn"
+                        onClick={() => navigate('/shop')}
+                    >
+                        Shop Now
+                    </button>
 
                     <div className="stats">
                         <div className="stat">
-                            <h3>200+</h3>
-                            <p>International Brands</p>
+                            <h3>Fast</h3>
+                            <p>WhatsApp ordering, direct to the seller</p>
                         </div>
                         <div className="stat">
-                            <h3>2,000+</h3>
-                            <p>High-Quality Products</p>
+                            <h3>Quality</h3>
+                            <p>Hand-picked fabrics and finishes</p>
                         </div>
                         <div className="stat">
-                            <h3>30,000+</h3>
-                            <p>Happy Customers</p>
+                            <h3>Reliable</h3>
+                            <p>Lagos-based, real people, real replies</p>
                         </div>
                     </div>
                 </div>

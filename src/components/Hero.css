@@ -1,22 +1,22 @@
 /* src/components/Hero.css */
+
 .hero {
     background-color: #f2f0f1;
     padding: 40px 0 0;
-    overflow-x: hidden;       /* ← stops horizontal scroll */
+    overflow-x: hidden;
 }
 
 .hero-container {
     width: 100%;
-    max-width: 100%;          /* ← was 1400px */
+    max-width: 100%;
     margin: 0;
-    padding: 0;               /* ← was 0 16px / 0 24px */
+    padding: 0;
 
     display: flex;
     flex-direction: column;
     gap: 32px;
 }
 
-/* Desktop: text left, image right */
 @media (min-width: 900px) {
     .hero-container {
         flex-direction: row;
@@ -33,13 +33,13 @@
 
 .hero-content {
     width: 100%;
-    padding: 0 16px;          /* small gutter on mobile */
+    padding: 0 16px;
 }
 
 @media (min-width: 900px) {
     .hero-content {
         flex: 1;
-        padding: 0 0 0 40px;   /* left gutter only */
+        padding: 0 0 0 40px;
         max-width: 720px;
     }
 }
@@ -106,7 +106,7 @@
     transform: scale(1.03);
 }
 
-/* Stats row */
+/* Stats / trust taglines */
 .stats {
     display: flex;
     flex-wrap: wrap;
@@ -119,33 +119,30 @@
     }
 }
 
+.stat {
+    max-width: 160px;
+}
+
 .stat h3 {
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 800;
     margin: 0 0 4px;
-}
-
-@media (min-width: 700px) {
-    .stat h3 {
-        font-size: 28px;
-    }
-}
-
-@media (min-width: 1000px) {
-    .stat h3 {
-        font-size: 32px;
-    }
+    letter-spacing: -0.3px;
 }
 
 .stat p {
     font-size: 12px;
     color: #666;
     margin: 0;
+    line-height: 1.4;
 }
 
 @media (min-width: 700px) {
+    .stat h3 {
+        font-size: 22px;
+    }
     .stat p {
-        font-size: 14px;
+        font-size: 13px;
     }
 }
 
@@ -155,7 +152,7 @@
 
 .hero-image-wrapper {
     width: 100%;
-    padding: 0, 16px;
+    padding: 0 16px;              /* ← fixed: comma removed */
     max-width: 520px;
     margin: 0 auto;
 
@@ -169,7 +166,7 @@
 @media (min-width: 900px) {
     .hero-image-wrapper {
         flex: 1;
-        padding: 0 40px 0 0;   /* right gutter only */
+        padding: 0 40px 0 0;
         margin: 0;
         align-self: stretch;
     }
@@ -186,11 +183,14 @@
 @media (min-width: 900px) {
     .hero-img {
         max-width: 520px;
-        margin-left: auto;     /* push image to the right edge */
+        margin-left: auto;
     }
 }
 
-/* Decorative stars */
+/* =========================
+   DECORATIVE STARS
+========================= */
+
 .decorative-star {
     position: absolute;
     z-index: 10;

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaPlus, FaMinus, FaTrash } from 'react-icons/fa';
+import Footer from '../components/Footer';
 import {
     selectCartItems,
     selectCartTotal,
@@ -33,7 +34,6 @@ function Cart() {
     };
 
     const handleDecrease = (item) => {
-        // At 1, decreasing removes the item entirely.
         if (item.quantity <= 1) {
             dispatch(removeFromCart({
                 id: item.id,
@@ -63,7 +63,6 @@ function Cart() {
         const link = buildWhatsAppLink(items);
         if (!link) return;
         window.open(link, '_blank');
-        // Auto-clear after checkout (as agreed)
         dispatch(clearCart());
     };
 
@@ -97,6 +96,7 @@ function Cart() {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </>
         );
     }
@@ -256,6 +256,8 @@ function Cart() {
                     </div>
                 </div>
             )}
+
+            <Footer />
         </>
     );
 }

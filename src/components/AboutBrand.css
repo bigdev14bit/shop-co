@@ -1,0 +1,104 @@
+/* src/components/AboutBrand.css */
+
+.about-brand {
+    padding: 80px 0;
+    background-color: #f8f6f4;
+}
+
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+}
+
+/* If image is added later */
+.about-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #eee;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    max-width: 640px;
+}
+
+.about-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+    margin: 0;
+}
+
+.about-title {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin: 0;
+    color: #000;
+}
+
+.about-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+}
+
+.about-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 14px 28px;
+    background-color: #25D366;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.about-cta:hover {
+    background-color: #1da851;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .about-brand {
+        padding: 50px 0;
+    }
+
+    .about-title {
+        font-size: 28px;
+    }
+
+    .about-text {
+        font-size: 14px;
+    }
+
+    .about-cta {
+        padding: 12px 22px;
+        font-size: 14px;
+    }
+}

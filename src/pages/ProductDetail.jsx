@@ -7,7 +7,10 @@ import { products } from '../data/products';
 import { addToCart } from '../store/cartSlice';
 import { buildSingleProductLink } from '../utils/whatsapp';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import './ProductDetail.css';
+
+const MAX_VISIBLE_THUMBS = 4;
 
 function ProductDetail() {
     const { id } = useParams();
@@ -30,6 +33,7 @@ function ProductDetail() {
                     <h2>Product not found</h2>
                     <Link to="/shop" className="pd-back-link">← Back to shop</Link>
                 </div>
+                <Footer />
             </>
         );
     }
@@ -38,6 +42,12 @@ function ProductDetail() {
     const images = product.images && product.images.length > 0
         ? product.images
         : ['/images/placeholder.jpg'];
+
+    const hasMore = images.length > MAX_VISIBLE_THUMBS;
+    const visibleThumbs = hasMore
+        ? images.slice(0, MAX_VISIBLE_THUMBS)
+        : images;
+    const remainingCount = images.length - MAX_VISIBLE_THUMBS;
 
     const handleAddToCart = () => {
         if (hasSizes && !selectedSize) {
@@ -88,6 +98,16 @@ function ProductDetail() {
         setActiveImageIndex((i) => (i - 1 + images.length) % images.length);
     };
 
+    const handleThumbClick = (idx) => {
+        // If it's the last visible thumb AND there are more, open lightbox at that index
+        if (hasMore && idx === MAX_VISIBLE_THUMBS - 1) {
+            setActiveImageIndex(MAX_VISIBLE_THUMBS - 1);
+            setLightboxOpen(true);
+            return;
+        }
+        setActiveImageIndex(idx);
+    };
+
     const rating = product.rating || 4.5;
 
     return (
@@ -120,17 +140,27 @@ function ProductDetail() {
 
                             {images.length > 1 && (
                                 <div className="pd-thumbs">
-                                    {images.map((img, idx) => (
-                                        <button
-                                            key={idx}
-                                            className={`pd-thumb ${
-                                                idx === activeImageIndex ? 'active' : ''
-                                            }`}
-                                            onClick={() => setActiveImageIndex(idx)}
-                                        >
-                                            <img src={img} alt={`${product.title} ${idx + 1}`} />
-                                        </button>
-                                    ))}
+                                    {visibleThumbs.map((img, idx) => {
+                                        const isLastVisible = idx === MAX_VISIBLE_THUMBS - 1;
+                                        const showOverlay = hasMore && isLastVisible;
+
+                                        return (
+                                            <button
+                                                key={idx}
+                                                className={`pd-thumb ${
+                                                    idx === activeImageIndex ? 'active' : ''
+                                                }`}
+                                                onClick={() => handleThumbClick(idx)}
+                                            >
+                                                <img src={img} alt={`${product.title} ${idx + 1}`} />
+                                                {showOverlay && (
+                                                    <span className="pd-thumb-overlay">
+                                                        +{remainingCount}
+                                                    </span>
+                                                )}
+                                            </button>
+                                        );
+                                    })}
                                 </div>
                             )}
                         </div>
@@ -240,6 +270,8 @@ function ProductDetail() {
                     )}
                 </div>
             )}
+
+            <Footer />
         </>
     );
 }

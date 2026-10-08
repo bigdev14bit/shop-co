@@ -1,0 +1,58 @@
+/* src/components/CategoryStrip.css */
+
+.category-strip {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    padding: 18px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.category-strip-track {
+    display: inline-flex;
+    animation: scroll-marquee 30s linear infinite;
+    will-change: transform;
+}
+
+.category-strip-item {
+    display: inline-flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0 22px;
+    flex-shrink: 0;
+}
+
+.category-strip-dot {
+    margin-left: 22px;
+    color: #888;
+    font-size: 18px;
+}
+
+@keyframes scroll-marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        /* Each half is 50% of the total width (list duplicated) */
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 600px) {
+    .category-strip {
+        padding: 14px 0;
+    }
+
+    .category-strip-item {
+        font-size: 13px;
+        padding: 0 18px;
+    }
+
+    .category-strip-dot {
+        margin-left: 18px;
+    }
+}

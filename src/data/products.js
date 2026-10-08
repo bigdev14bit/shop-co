@@ -1,7 +1,8 @@
 // src/data/products.js
 
-//export const WHATSAPP_NUMBER = "2349053436897";
-export const WHATSAPP_NUMBER = "2348086850026";
+export const WHATSAPP_NUMBER = "2349053436897";
+//export const WHATSAPP_NUMBER = "2348086850026";
+
 export const BRAND_NAME = "Mordylilith Store";
 
 export const products = [
@@ -9,7 +10,7 @@ export const products = [
     id: 1,
     title: "Ankara Print Wrap Top",
     price: 8500,
-    images: ["/images/product-1.jpg", "/images/product-1b.jpg"],
+    images: ["/images/product-1.jpg", "/images/product-1b.jpg", "/images/product-2.jpg", "/images/product-2b.jpg", "/images/product-2.jpg", "/images/product-2b.jpg"],
     description:
       "Bold Ankara print wrap top with a flattering V-neckline. Perfect for both casual Fridays and weekend outings. Made from breathable cotton blend.",
     category: "Tops",
@@ -21,7 +22,7 @@ export const products = [
     id: 2,
     title: "Classic Denim Jacket",
     price: 15000,
-    images: ["/images/product-2.jpg", "/images/product-2b.jpg"],
+    images: ["/images/product-2.jpg", "/images/product-2b.jpg", "/images/product-2.jpg", "/images/product-2b.jpg", "/images/product-2.jpg", "/images/product-2b.jpg"],
     description:
       "Timeless denim jacket with a relaxed fit. Layer it over anything — dresses, tees, or crop tops. Sturdy stitching and premium wash.",
     category: "Outerwear",

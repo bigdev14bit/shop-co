@@ -1,140 +1,85 @@
-import {
-    FaTwitter,
-    FaFacebookF,
-    FaInstagram,
-    FaGithub,
-} from 'react-icons/fa';
-
+// src/components/Footer.jsx
+import { Link } from 'react-router-dom';
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
+import { WHATSAPP_NUMBER, BRAND_NAME } from '../data/products';
 import './Footer.css';
 
-
 function Footer() {
-    /*
-        Footer navigation is kept as data instead of
-        manually writing every link.
+    const year = new Date().getFullYear();
 
-        This makes the footer easier to maintain later.
-    */
-    const footerLinks = [
-        {
-            title: 'COMPANY',
-            links: ['About', 'Features', 'Works', 'Career'],
-        },
-        {
-            title: 'HELP',
-            links: [
-                'Customer Support',
-                'Delivery Details',
-                'Terms & Conditions',
-                'Privacy Policy',
-            ],
-        },
-        {
-            title: 'FAQ',
-            links: [
-                'Account',
-                'Manage Deliveries',
-                'Orders',
-                'Payments',
-            ],
-        },
-        {
-            title: 'RESOURCES',
-            links: [
-                'Free eBooks',
-                'Development Tutorial',
-                'How to - Blog',
-                'Youtube Playlist',
-            ],
-        },
-    ];
+    const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+        "Hi Praise! I'd like to know more about Mordylilith Store."
+    )}`;
 
     return (
-        <footer className="footer">
+        <footer className="footer" id="contact">
             <div className="footer-container">
-
-                {/* =========================
-                    MAIN FOOTER CONTENT
-                ========================= */}
 
                 <div className="footer-main">
 
-                    {/* Brand information */}
+                    {/* Brand */}
                     <div className="footer-brand">
-
-                        <h2>MORDYLILITH STORE</h2>
-
+                        <h2>{BRAND_NAME}</h2>
                         <p>
-                            We have clothes that suits your style and
-                            which you're proud to wear. From women to men.
+                            Hand-picked fashion for women who want to feel
+                            confident in what they wear. Kwara-based, WhatsApp-first.
                         </p>
 
-                        {/* Social media icons */}
                         <div className="social-links">
-                            <a href="#" aria-label="Twitter">
-                                <FaTwitter />
+                            <a
+                                href={whatsappLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="WhatsApp"
+                            >
+                                <FaWhatsapp />
                             </a>
-
-                            <a href="#" aria-label="Facebook">
-                                <FaFacebookF />
-                            </a>
-
-                            <a href="#" aria-label="Instagram">
+                            <a
+                                href="https://instagram.com/mordy.lilith"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Instagram"
+                            >
                                 <FaInstagram />
                             </a>
+                        </div>
+                    </div>
 
-                            <a href="#" aria-label="GitHub">
-                                <FaGithub />
+                    {/* Links */}
+                    <div className="footer-links">
+
+                        <div className="footer-column">
+                            <h3>SHOP</h3>
+                            <Link to="/shop">All Products</Link>
+                            <Link to="/cart">Your Cart</Link>
+                        </div>
+
+                        <div className="footer-column">
+                            <h3>ABOUT</h3>
+                            <a href="#about">Our Story</a>
+                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                                Chat with us
+                            </a>
+                        </div>
+
+                        <div className="footer-column">
+                            <h3>CONTACT</h3>
+                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                                WhatsApp
+                            </a>
+                            <a href="https://instagram.com/mordy.lilith" target="_blank" rel="noopener noreferrer">
+                                @mordy.lilith
                             </a>
                         </div>
 
                     </div>
 
-
-                    {/* Footer navigation columns */}
-                    <div className="footer-links">
-
-                        {footerLinks.map((column) => (
-                            <div
-                                className="footer-column"
-                                key={column.title}
-                            >
-                                <h3>{column.title}</h3>
-
-                                {column.links.map((link) => (
-                                    <a href="#" key={link}>
-                                        {link}
-                                    </a>
-                                ))}
-                            </div>
-                        ))}
-
-                    </div>
-
                 </div>
 
-
-                {/* =========================
-                    FOOTER BOTTOM
-                ========================= */}
-
                 <div className="footer-bottom">
-
-                    {/* Copyright */}
                     <p>
-                        Mordylilith Store © 2000-2026, All Rights Reserved
+                        {BRAND_NAME} © {year}, All Rights Reserved
                     </p>
-
-
-                    {/* Payment methods */}
-                    <div className="payment-methods">
-                        <span>VISA</span>
-                        <span>MC</span>
-                        <span>PayPal</span>
-                        <span>Pay</span>
-                        <span>G Pay</span>
-                    </div>
-
                 </div>
 
             </div>

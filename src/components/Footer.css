@@ -1,120 +1,122 @@
+/* src/components/Footer.css */
+
 .footer {
     width: 100%;
     background-color: #f0f0f0;
-    padding: 45px 0 25px;
+    padding: 60px 0 25px;
 }
 
-
-/*
-    Main footer container.
-
-    Unlike relying completely on the global .container,
-    we're giving this section its own responsive width.
-*/
 .footer-container {
     width: calc(100% - 32px);
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
-
-/* =========================
-   MAIN FOOTER
-========================= */
-
 .footer-main {
     display: flex;
-    justify-content: space-between;
-    gap: 60px;
+    flex-direction: column;
+    gap: 40px;
 }
 
+@media (min-width: 800px) {
+    .footer-main {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 60px;
+    }
+}
 
-/* Brand section */
+/* Brand */
 .footer-brand {
-    width: 250px;
-    flex-shrink: 0;
+    width: 100%;
+}
+
+@media (min-width: 800px) {
+    .footer-brand {
+        width: 320px;
+        flex-shrink: 0;
+    }
 }
 
 .footer-brand h2 {
-    margin: 0 0 20px;
-
-    font-size: 32px;
+    margin: 0 0 16px;
+    font-size: 24px;
     font-weight: 900;
+    letter-spacing: -0.5px;
 }
 
 .footer-brand p {
     margin: 0;
-
     color: #666;
     font-size: 14px;
     line-height: 1.6;
 }
 
-
-/* =========================
-   SOCIAL LINKS
-========================= */
-
+/* Social */
 .social-links {
     display: flex;
-    gap: 10px;
-    margin-top: 30px;
+    gap: 12px;
+    margin-top: 24px;
 }
 
 .social-links a {
-    width: 32px;
-    height: 32px;
-
+    width: 38px;
+    height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     border: 1px solid #ccc;
     border-radius: 50%;
-
     background-color: #fff;
     color: #000;
-
     text-decoration: none;
-
-    font-size: 14px;
-
-    transition: 0.2s ease;
+    font-size: 16px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .social-links a:hover {
     transform: translateY(-2px);
+    background-color: #000;
+    color: #fff;
 }
 
-
-/* =========================
-   FOOTER LINK COLUMNS
-========================= */
-
+/* Link columns */
 .footer-links {
-    flex: 1;
-
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+}
+
+@media (min-width: 600px) {
+    .footer-links {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 800px) {
+    .footer-links {
+        flex: 1;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
 }
 
 .footer-column {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
 }
 
 .footer-column h3 {
-    margin: 0 0 10px;
-
-    font-size: 14px;
+    margin: 0 0 6px;
+    font-size: 12px;
+    font-weight: 800;
     letter-spacing: 2px;
+    color: #000;
 }
 
 .footer-column a {
     color: #666;
-
     font-size: 14px;
     text-decoration: none;
 }
@@ -123,127 +125,34 @@
     color: #000;
 }
 
-
-/* =========================
-   FOOTER BOTTOM
-========================= */
-
+/* Bottom */
 .footer-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
     margin-top: 45px;
     padding-top: 20px;
-
     border-top: 1px solid #d5d5d5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .footer-bottom p {
     margin: 0;
-
     color: #666;
     font-size: 13px;
 }
 
-
-/* Payment method badges */
-.payment-methods {
-    display: flex;
-    gap: 8px;
-}
-
-.payment-methods span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    min-width: 48px;
-    height: 30px;
-
-    padding: 0 8px;
-
-    background-color: #fff;
-    border-radius: 5px;
-
-    font-size: 10px;
-    font-weight: 700;
-}
-
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 900px) {
-
-    .footer-main {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .footer-brand {
-        width: 100%;
-    }
-
-    .footer-links {
-        width: 100%;
-    }
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
 @media (max-width: 600px) {
-
     .footer {
-        padding: 35px 0 20px;
-    }
-
-    .footer-main {
-        gap: 35px;
-    }
-
-    .footer-brand {
-        width: 100%;
+        padding: 40px 0 20px;
     }
 
     .footer-brand h2 {
-        font-size: 28px;
+        font-size: 22px;
     }
 
-    /*
-        On mobile the four columns become two columns.
-    */
-    .footer-links {
-        grid-template-columns: 1fr 1fr;
-        gap: 30px 20px;
-    }
-
-    .footer-column {
-        gap: 12px;
-    }
-
-    .footer-column h3 {
-        font-size: 12px;
-    }
-
-    .footer-column a {
-        font-size: 13px;
-    }
-
-    /*
-        Stack the copyright and payment methods.
-    */
     .footer-bottom {
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
-    }
-
-    .payment-methods {
-        flex-wrap: wrap;
+        gap: 12px;
     }
 }
