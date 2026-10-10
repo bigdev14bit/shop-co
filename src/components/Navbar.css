@@ -358,3 +358,90 @@
         gap: 14px;
     }
 }
+
+/* =========================
+   MOBILE DRAWER
+========================= */
+
+.mobile-drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.mobile-drawer {
+    width: 280px;
+    max-width: 80vw;
+    height: 100%;
+    background: #fff;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    animation: drawerSlide 0.25s ease;
+    overflow-y: auto;
+}
+
+@keyframes drawerSlide {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.mobile-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-drawer-logo {
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+}
+
+.mobile-drawer-close {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.mobile-drawer-close svg {
+    width: 22px;
+    height: 22px;
+}
+
+.mobile-drawer-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 16px 0;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-drawer-link:hover {
+    color: #666;
+}
+
+/* Hide drawer on desktop (belt and suspenders) */
+@media (min-width: 769px) {
+    .mobile-drawer-overlay {
+        display: none;
+    }
+}
