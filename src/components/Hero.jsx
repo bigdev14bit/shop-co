@@ -54,7 +54,7 @@ function Hero() {
                         className="decorative-star star-small"
                     />
                     <img
-                        src="/src/assets/trendy-fashionable-couple-posing.jpg"
+                        src="/trendy-fashionable-couple-posing.jpg"
                         alt="Fashionable couple posing"
                         className="hero-img"
                     />
